@@ -1,10 +1,24 @@
 import "./styles.css";
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
+document.getElementById("board").innerHTML = `
 <div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+  <table>
+  <tr>
+    <td ></td>
+    <td ></td>
+    <td ></td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td ></td>
+    <td ></td>
+  </tr>
+  <tr>
+    <td ></td>
+    <td ></td>
+    <td ></td>
+  </tr>
+  </table>
+
 </div>
 `;
