@@ -1,17 +1,16 @@
 import "./styles.css";
-let boardArr = ["","","O","","","","","",""];
+let boardArr = [];
+for (let x=0; x<5; x++) {
+  boardArr.push(["","","","",""]);
+}
 
 let board = "<table border=1>";
-let colc = 0;
 for (let i=0; i<boardArr.length; i++) {
-  if (colc === 0) board += "<tr>";
-  board += "<td width=75px height=75px> <p style='text-align:center; font-size:30px;' > " + boardArr[i] + "</p> </td>";
-  if (colc === 2)  {
-    board += "</tr>";
-    colc = 0;
-} else {
-  colc++;
-}
+  board += "<tr>";
+  for (let j=0; j<bardArr[i].length; j++) {
+    board += "<td width=50px height=50px> <p style='text-align:center; font-size:25px;' > " + boardArr[i] + "</p> </td>";
+  }
+  board +="</tr>";
 }
 board += "</table>";
 
