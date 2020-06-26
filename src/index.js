@@ -1,31 +1,19 @@
 import "./styles.css";
+lat boardArr = ["","","O","","","","","",""];
 
-document.getElementById("board").innerHTML = `
-<div>
-<table border="1" width="400px" height="400px">
-  <tr>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-    
-  </tr>
-  <tr>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-  </tr>
-  <tr>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-    <td ></td>
-  </tr>
-  </table>
-
-</div>
-`;
+const printBoard = () => {
+  let board = "";
+  let colc = 0;
+  for (i=0; i<boardArr.length; i++) {
+    if (colc === 0) board += "<tr>";
+    board += "<td>" + boardArr[i] + "</td>";
+    if (colc === 2)  {
+      board += "</tr>";
+      colc = 0;
+  } else {
+    colc++;
+  }
+  }
+};
+printBoard();
+document.getElementById("board").innerHTML = board;
