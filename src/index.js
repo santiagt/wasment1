@@ -4,13 +4,40 @@ for (let x=0; x<5; x++) {
   boardArr.push(["","","","",""]);
 }
 
+const playTurn = (cell, mark) => {
+  let row = -1;
+  let col = -1;
+
+  if (cell < 5) {
+    row = 0;
+    col = cell;
+  } else if ( cell < 10 && cell > 4) {
+    row = 1;
+    col = (cell - 5);
+  } else if ( cell < 15 && cell > 9) {
+    row = 2;
+    col = (cell - 10);
+  } else if ( cell < 20 && cell > 14) {
+    row = 3;
+    col = (cell - 15);
+  } else if (cell > 19) {
+    row = 4;
+    col = (cell - 20);
+  }
+  
+  if (row > 0 && boardArr[row][col] === "") {
+    boardArr[row][col] = mark;
+  }
+
+}
+
 document.addEventListener('click', (event) => {
   console.log(event.target.type);
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
     let pos = event.target.id;
     console.log(pos);
-    
+    playTurn(pos, "X");
   }
 });
 
