@@ -5,16 +5,14 @@ for (let x=0; x<5; x++) {
 }
 
 document.addEventListener('click', (event) => {
+  console.log(event.target.type);
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
-    let pos = event.target.id;
-    if (pos.contains(",") && pos.length === 3) {
-      let x = parseInt(pos[0]);
-      let y = parseInt(pos[2]);
-      console.log(x + y);
-    }
+    let pos = event.target.id.toString();
+    let x = parseInt(pos[0]);
+    let y = parseInt(pos[2]);
+    console.log(x + y);
   }
-
 });
 
 const printBoard = () => {
