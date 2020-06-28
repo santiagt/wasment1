@@ -8,22 +8,22 @@ document.addEventListener('click', (event) => {
   console.log(event.target.type);
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
-    let pos = event.target.id.toString();
-    let x = parseInt(pos[0]);
-    let y = parseInt(pos[2]);
-    console.log(x + y);
+    let pos = event.target.id;
+    console.log(pos);
+    
   }
 });
 
 const printBoard = () => {
   let board = "<table border=1>";
-
+  let x = 0;
   for (let i=0; i<boardArr.length; i++) {
     board += "<tr>";
     for (let j=0; j<boardArr[i].length; j++) {
-      let id = i +","+ j; 
+      let id = x; 
       board += `<td id=${id} width=50px height=50px> <p style='text-align:center; font-size:25px;' > ` 
                 + boardArr[i][j] + "</p> </td>";
+      x++;
     }
     board +="</tr>";
   }
