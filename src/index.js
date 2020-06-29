@@ -3,10 +3,14 @@ let boardArr = [];
 let player = "X"
 
 const cleanBoard = () => {
-  for (let x=0; x<5; x++) {
-    boardArr.push(["","","","",""]);
-  }
-}
+  boardArr[
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""],
+    ["","","","",""]
+  ]
+};
  
 cleanBoard();
 
@@ -92,7 +96,7 @@ const checkWin = () => {
   if (!boardPlain.includes("")) {
     alert("It's a tie!")
     cleanBoard();
-    printBoard();
+
   }
 }
 
