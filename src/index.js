@@ -52,7 +52,8 @@ const printBoard = () => {
     board += "<tr>";
     for (let j=0; j<boardArr[i].length; j++) {
       let id = x; 
-      board += `<td id=${id} width=50px height=50px> <p style='text-align:center; font-size:25px;' > ` 
+      board += `<td id=${id} width=70px height=70px> 
+                <p style='text-align:center; font-size:22px;'>` 
                 + boardArr[i][j] + "</p> </td>";
       x++;
     }
