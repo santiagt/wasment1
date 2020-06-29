@@ -3,7 +3,7 @@ let boardArr = [];
 for (let x=0; x<5; x++) {
   boardArr.push(["","","","",""]);
 }
-let winner = null;
+let player = "X"
 
 const playTurn = (cell, mark) => {
   let row = -1;
@@ -35,15 +35,20 @@ const playTurn = (cell, mark) => {
 
 }
 
+const switchPlayer = () => {
+  player = player === "X" ? "O" : "X";
+}
+
 document.addEventListener('click', (event) => {
   console.log(event.target.type);
   if (event.target instanceof HTMLTableCellElement) {
     event.preventDefault();
     let pos = event.target.id;
     console.log(pos);
-    playTurn(pos, "X");
+    playTurn(pos, player);
     printBoard();
     checkWin();
+    switchPlayer();
   }
 });
 
