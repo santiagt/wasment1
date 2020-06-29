@@ -1,9 +1,14 @@
 import "./styles.css";
 let boardArr = [];
-for (let x=0; x<5; x++) {
-  boardArr.push(["","","","",""]);
-}
 let player = "X"
+
+const cleanBoard = () => {
+  for (let x=0; x<5; x++) {
+    boardArr.push(["","","","",""]);
+  }
+}
+ 
+cleanBoard();
 
 const playTurn = (cell, mark) => {
   let row = -1;
@@ -74,13 +79,18 @@ const checkWin = () => {
   combo.forEach((line) => {
     if (allEqual(line)) {
       if (line[0] === "X") {
-        alert("The winner is player 1!");
+        alert("Player 1 won!");
+        cleanBoard();
       } else {
-        alert("The winner is player 2!");
+        alert("Player 2 won!");
+        cleanBoard();
       }
     }
   });
-  (boardPlain.includes("") ? null : alert("It's a tie!"));
+  if (!boardPlain.includes("")) {
+    alert("It's a tie!")
+    cleanBoard();
+  }
 }
 
 const printBoard = () => {
