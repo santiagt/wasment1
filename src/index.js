@@ -3,13 +3,13 @@ let boardArr = [];
 let player = "X"
 
 const cleanBoard = () => {
-  boardArr[
+  boardArr = [
     ["","","","",""],
     ["","","","",""],
     ["","","","",""],
     ["","","","",""],
     ["","","","",""]
-  ]
+  ];
 };
  
 cleanBoard();
