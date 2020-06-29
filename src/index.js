@@ -41,6 +41,7 @@ document.addEventListener('click', (event) => {
     let pos = event.target.id;
     console.log(pos);
     playTurn(pos, "X");
+    printBoard();
   }
 });
 
