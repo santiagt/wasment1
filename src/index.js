@@ -81,15 +81,18 @@ const checkWin = () => {
       if (line[0] === "X") {
         alert("Player 1 won!");
         cleanBoard();
+        printBoard();
       } else {
         alert("Player 2 won!");
         cleanBoard();
+        printBoard();
       }
     }
   });
   if (!boardPlain.includes("")) {
     alert("It's a tie!")
     cleanBoard();
+    printBoard();
   }
 }
 
