@@ -51,21 +51,20 @@ const allEqual = arr => arr.every(v => v === arr[0] && v !== "");
 
 const checkWin = () => {
   let horarr = [[],[],[],[],[]];
-  let diagon1 = [];
-  let diagon2 = [];
+  let diagon = [[],[]];
   let boardPlain = [];
   for (let i=0; i<5; i++) {
-    diagon1.push(boardArr[i][i]);
+    diagon[0].push(boardArr[i][i]);
     for (let j=0; j<5; j++) {
       horarr[i].push(boardArr[j][i]);
       boardPlain.push(boardArr[i][j]);
     }
   }
   for (let i=4; i>-1; i--) {
-    diagon2.push(boardArr[i][i]);
+    diagon[1].push(boardArr[i][i]);
   }
 
-  let combo = horarr.concat(boardArr).concat(diagon2).concat(diagon1);
+  let combo = horarr.concat(boardArr).concat(diagon);
 
   combo.forEach((line) => {
     if (allEqual(line)) {
