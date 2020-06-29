@@ -96,6 +96,7 @@ const checkWin = () => {
   if (!boardPlain.includes("")) {
     alert("It's a tie!")
     cleanBoard();
+    printBoard();
 
   }
 }
