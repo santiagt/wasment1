@@ -3,6 +3,7 @@ let boardArr = [];
 for (let x=0; x<5; x++) {
   boardArr.push(["","","","",""]);
 }
+let winner = null;
 
 const playTurn = (cell, mark) => {
   let row = -1;
@@ -42,8 +43,41 @@ document.addEventListener('click', (event) => {
     console.log(pos);
     playTurn(pos, "X");
     printBoard();
+    checkWin();
   }
 });
+
+const allEqual = arr => arr.every(v => v === arr[0] && v !== "");
+
+const checkWin = () => {
+  let horarr = [[],[],[],[],[]];
+  let diagon1 = [];
+  let diagon2 = [];
+  let boardPlain = [];
+  for (let i=0; i<5; i++) {
+    diagon1.push(boardArr[i][i]);
+    for (let j=0; j<5; j++) {
+      horarr[i].push(boardArr[j][i]);
+      boardPlain.push(boardArr[i][j]);
+    }
+  }
+  for (let i=4; i>-1; i--) {
+    diagon2.push(boardArr[i][i]);
+  }
+
+  let combo = horarr.concat(boardArr).concat(diagon2).concat(diagon1);
+
+  combo.forEach((line) => {
+    if (allEqual(line)) {
+      if (line[0] === "X") {
+        alert("The winner is player 1!");
+      } else {
+        alert("The winner is player 2!");
+      }
+    }
+  });
+  (boardPlain.includes("") ? null : alert("It's a tie!"));
+}
 
 const printBoard = () => {
   let board = "<table border=1>";
@@ -61,7 +95,7 @@ const printBoard = () => {
   }
   board += "</table>";
   document.getElementById("board").innerHTML = board;
-};
+}
+
 
 printBoard();
-
