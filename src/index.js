@@ -24,10 +24,13 @@ const playTurn = (cell, mark) => {
     row = 4;
     col = (cell - 20);
   }
-  
-  if (row > 0 && boardArr[row][col] === "") {
+  console.log(row);
+
+  if (row > -1  && boardArr[row][col] === "") {
     boardArr[row][col] = mark;
   }
+  console.log(mark);
+  console.log(boardArr);
 
 }
 
@@ -55,9 +58,8 @@ const printBoard = () => {
     board +="</tr>";
   }
   board += "</table>";
-  console.log(board);
-  return board;
+  document.getElementById("board").innerHTML = board;
 };
 
+printBoard();
 
-document.getElementById("board").innerHTML = printBoard();
