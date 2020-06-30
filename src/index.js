@@ -67,15 +67,19 @@ const checkWin = () => {
   let horarr = [[],[],[],[],[]];
   let diagon = [[],[]];
   let boardPlain = [];
+  let x = 0;
+
   for (let i=0; i<5; i++) {
-    diagon[0].push(boardArr[i][i]);
     for (let j=0; j<5; j++) {
       horarr[i].push(boardArr[j][i]);
       boardPlain.push(boardArr[i][j]);
     }
   }
+
   for (let i=4; i>-1; i--) {
-    diagon[1].push(boardArr[i][i]);
+    diagon[0].push(boardArr[i][i]);
+    diagon[1].push(boardArr[i][x]);
+    x++;
   }
 
   let combo = horarr.concat(boardArr).concat(diagon);
